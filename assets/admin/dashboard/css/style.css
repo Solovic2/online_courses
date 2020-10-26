@@ -1,0 +1,21 @@
+body{
+    /*text-align: right;*/
+    font-family: 'Amiri', serif;
+    direction: rtl;
+
+}
+#content > nav,
+#accordionSidebar{
+    direction: ltr;
+}
+.sidebar .nav-item .nav-link span {
+    font-size: 1.1rem;
+}
+.sidebar .nav-item .nav-link i{
+    font-size: 1.5rem;
+}
+.sidebar .nav-item.active .nav-link{
+    font-weight: normal;
+}
+
+
