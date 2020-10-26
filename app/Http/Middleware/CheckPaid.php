@@ -20,6 +20,6 @@ class CheckPaid
       if(Month::findOrFail($request->route('month_id'))->students->contains(Auth::id())){
           return $next($request);
       }
-      abort(404);
+     return 'ok'; abort(404);
     }
 }

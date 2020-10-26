@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Exam','exam_user','user_id','exam_id','id','id')->withPivot('grade');
 
     }
+    public function homeworks(){
+        return $this->belongsToMany('App\Models\Homework','homework_user','user_id','homework_id','id','id')->withPivot('grade');
+
+    }
 
 
 }
