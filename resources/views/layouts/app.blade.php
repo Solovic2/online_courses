@@ -11,16 +11,16 @@
 
     <!-- Scripts -->
         <script src="{{ asset('assets/js/app.js') }}" defer></script>
+{{--        <script src="{{ asset('assets/js/ok.js') }}" defer></script>--}}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{{--    <script src="{{ asset('assert/js/ok.js') }}" defer></script>--}}
 {{----}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Styles -->
-{{--        <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+        <link href="{{ asset('assets/front/css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -79,6 +79,6 @@
         @yield('content')
     </main>
 </div>
-
+@yield('script')
 </body>
 </html>

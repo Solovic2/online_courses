@@ -9,7 +9,7 @@ class Questionhomework extends Model
     protected $table = 'questionhomeworks';
 
     protected $fillable = [
-        'name','homework_id','correct',
+        'name','homework_id','correct','user_answer',
     ];
 
     protected $hidden = [

@@ -9,7 +9,7 @@ class Questionexam extends Model
     protected $table = 'questionexams';
 
     protected $fillable = [
-        'name','exam_id','correct'
+        'name','exam_id','correct','user_answer',
     ];
 
     protected $hidden = [

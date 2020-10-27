@@ -20,12 +20,22 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     Route::get('subject/{id}','HomeController@show')->name('show.subject.months');
-    Route::group(['middleware'=>'pay'],function(){
-        Route::get('subject/month/{month_id}','HomeController@monthShow')->name('show.months');
-        Route::get('subject/month/{month_id}/exam/{exam_id}','HomeController@examShow')->name('show.exam')->middleware('signed');
-        Route::post('subject/month/{month_id}/correct-exam','HomeController@correctExam')->name('correct');
-        Route::get('subject/month/{month_id}/homework/{homework_id}','HomeController@showHomework')->name('show.homework');
-        Route::post('subject/month/{month_id}/homework/correct-homework','HomeController@correctHomework')->name('correct-homework');
+    Route::group(['middleware'=>'pay','prefix'=>'subject/month/{month_id}'],function(){
+
+        Route::get('/','HomeController@monthShow')->name('show.months');
+        /** Exam  */
+        Route::get('exam/{exam_id}','HomeController@examShow')->name('show.exam')->middleware('signed');
+        Route::post('correct-exam','HomeController@correctExam')->name('correct');
+        Route::get('end-time','HomeController@endTime')->name('end.time');
+                /* Middleware */
+        Route::get('exam-answer-correct/{exam_id}','HomeController@studentAnswerExam')->name('show.exam.correct.answer')->middleware('exam');
+
+        /** Homework */
+        Route::get('homework/{homework_id}','HomeController@showHomework')->name('show.homework');
+        Route::post('homework/correct-homework','HomeController@correctHomework')->name('correct-homework');
+                         ### Middleware ###
+        Route::get('homework-answer-correct/{homework_id}','HomeController@studentAnswerhomework')->name('show.homework.correct.answer')->middleware('homework');
+
     });
 });
 Route::get('/home', 'HomeController@index')->name('home');

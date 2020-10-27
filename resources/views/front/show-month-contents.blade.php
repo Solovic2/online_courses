@@ -6,15 +6,17 @@
         <div> {{$month->contains->first()->video}}</div>
         <div>
             @if(Auth::user()->exams->find($month->contains->first()->exam)->pivot->grade ?? '' > 1)
-                <div  class="btn btn-success">{{$month->contains->first()->exam->name}}</div>
+                <a  class="btn btn-success" href="{{route('show.exam.correct.answer',['month_id'=>$month->id,'exam_id'=>$month->contains->first()->exam->id])}}">إجابتك للإمتحان </a>
             @else
-            <a href="#" class="btn btn-secondary">{{$month->contains->first()->exam->name}}</a>
+                <a href="{{URL::temporarySignedRoute('show.exam', now()->addMinutes(15),['month_id'=>$month->id,'exam_id'=>$month->contains->first()->exam->id])}}" class="btn btn-secondary">{{$month->contains->first()->exam->name}}</a>
             @endif
                 @if(Auth::user()->homeworks->find($month->contains->first()->homework)->pivot->grade ?? '' > 1 )
-                    <a  href="#" class="btn btn-success"> {{$month->contains->first()->homework}}</a>
+                    <a href="{{route('show.homework.correct.answer',['month_id'=>$month->id,'homework_id'=>$month->contains->first()->homework->id])}}" class="btn btn-success" > إجابتك للواجب </a>
 
                 @else
-                    <a  href="#" class="btn btn-secondary"> {{$month->contains->first()->homework}}</a>
+                    @if(!empty($month->contains->first()->homework))
+                        <a  href="{{route('show.homework',['month_id'=>$month->id,'homework_id'=>$month->contains->first()->homework->id ])}}" class="btn btn-secondary"> {{$month->contains->first()->homework}}</a>
+                    @endif
                 @endif
         </div>
 
@@ -23,19 +25,22 @@
                 <div> {{$month->contains[$i]->video}}</div>
             <div>
                 @if(Auth::user()->homeworks->find($month->contains[$i]->homework)->pivot->grade ?? ''  > 1 )
-                    <a  href="#" class="btn btn-success"> {{$month->contains[$i]->homework->name ?? '' }}</a>
+                    <a  href="{{route('show.homework.correct.answer',['month_id'=>$month->id,'homework_id'=>$month->contains[$i]->homework->id])}}" class="btn btn-success"> إجابتك للواجب </a>
                 @else
-                    <a  href="{{route('show.homework',['month_id'=>$month->id,'homework_id'=>$month->contains[$i]->homework->id ?? 0])}}" class="btn btn-secondary"> {{$month->contains[$i]->homework->name ?? ''}}</a>
-
+                    @if(!empty($month->contains[$i]->homework))
+                        <a  href="{{route('show.homework',['month_id'=>$month->id,'homework_id'=>$month->contains[$i]->homework->id])}}" class="btn btn-secondary"> {{$month->contains[$i]->homework->name ?? ''}}</a>
+                    @endif
                 @endif
             </div>
                 <div>
                     @if(Auth::user()->exams->find($month->contains[$i]->exam)->pivot->grade ?? '' > 1)
-                        <a  href="#" class="btn btn-success"> {{$month->contains[$i]->exam->name}}</a>
+                        <a  href="{{route('show.exam.correct.answer',['month_id'=>$month->id,'exam_id'=>$month->contains[$i]->exam->id])}}" class="btn btn-success"> إجابتك للإمتحان </a>
                     @else
-                        <a href="{{URL::temporarySignedRoute('show.exam', now()->addMinutes(1),['month_id'=>$month->id,'exam_id'=>$month->contains[$i]->exam->id])}}" class="btn btn-secondary">
-                            {{$month->contains[$i]->exam->name}}
-                        </a>
+                        @if(Auth::user()->in_exam != 1)
+                            <a href="{{URL::temporarySignedRoute('show.exam', now()->addMinutes(15),['month_id'=>$month->id,'exam_id'=>$month->contains[$i]->exam->id])}}" class="btn btn-secondary exam-time">
+                                {{$month->contains[$i]->exam->name}}
+                            </a>
+                        @endif
                     @endif
                 </div>
             @endif
@@ -54,4 +59,23 @@
 {{--            <br>--}}
 {{--        @endforeach--}}
     </div>
+@endsection
+@section('script')
+    <script>
+
+        $('.exam-time').on('click',function (){
+            @php
+                Auth::user()->end_exam_time = \Carbon\Carbon::now()->addMinutes(1);
+                Auth::user()->save();
+            @endphp
+        });
+        @if(Auth::user()->in_exam == 1)
+            window.history.forward();
+        @endif
+
+        // $.ajax({
+        //     'url':,
+        //     'method':
+        // })
+    </script>
 @endsection
