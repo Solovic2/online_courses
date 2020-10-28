@@ -17,7 +17,7 @@ class Month extends Model
     ];
 
     public function students(){
-        return $this->belongsToMany('App\User','month_user','month_id','user_id','id','id')->withPivot('active');
+        return $this->belongsToMany('App\User','month_user','month_id','user_id','id','id')->withPivot(['active','activate','deactivate']);
     }
     public function subject(){
         return $this->belongsTo('App\Models\Subject','subject_id','id','id');

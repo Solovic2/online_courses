@@ -42,7 +42,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Year','year_id','id');
     }
     public function months(){
-        return $this->belongsToMany('App\Models\Month','month_user','user_id','month_id','id','id')->withPivot('active');
+        return $this->belongsToMany('App\Models\Month','month_user','user_id','month_id','id','id')->withPivot(['active','activate','deactivate']);
     }
 
     public function exams(){

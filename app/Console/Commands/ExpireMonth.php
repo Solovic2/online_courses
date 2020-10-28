@@ -2,18 +2,17 @@
 
 namespace App\Console\Commands;
 
-use Carbon\Carbon;
+use App\Models\Month;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Auth;
 
-class ExamTime extends Command
+class ExpireMonth extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'exam:time';
+    protected $signature = 'expire:month';
 
     /**
      * The console command description.
@@ -39,10 +38,13 @@ class ExamTime extends Command
      */
     public function handle()
     {
-       if(Carbon::now()->isAfter(session('end'))){
-           session()->remove('end');
-           Auth::user()->in_exam = 0;
-       }
-        return 0;
+        $months = Month::with('students')->get();
+        foreach ($months as $month){
+            foreach ($month->students as $student){
+                if( $student->pivot->activate >  $student->pivot->deactivate ){
+                    $month->students()->detach($student->id);
+                }
+            }
+        }
     }
 }

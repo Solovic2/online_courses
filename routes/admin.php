@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Month;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,9 +69,6 @@ Route::group(['namespace'=>'Admin','middleware'=>'auth:admin'],function (){
         Route::get('/show','AdminController@showIndex')->name('admin.show-video-months');
 
     });
-
-
-
 
 
 

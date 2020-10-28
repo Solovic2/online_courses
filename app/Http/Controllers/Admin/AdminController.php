@@ -16,6 +16,7 @@ use App\Models\Questionhomework;
 use App\Models\Subject;
 use App\Models\Year;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
@@ -127,7 +128,7 @@ class AdminController extends Controller
 
     }
     public function yearActivateStudent($id,$student_id){
-       $month =  Month::findOrFail($id)->students()->attach($student_id);
+       $month =  Month::findOrFail($id)->students()->attach($student_id,['activate'=>Carbon::now() ,'deactivate'=>Carbon::now()->addDays(30)]);
         return redirect()->back();
     }
     public function yearDectivateStudent($id,$student_id){
