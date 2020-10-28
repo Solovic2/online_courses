@@ -16,9 +16,9 @@ class ExamAnswer
      */
     public function handle($request, Closure $next)
     {
-        $exam = Auth::user()->exam->find($request->route('exam_id'));
+        $exam = Auth::user()->exams->find($request->route('exam_id'));
 
-        if( $exam !=null &&$exam->pivot->grade > 0 ){
+        if( $exam !=null && $exam->pivot->grade > 0 ){
             return $next($request);
         }else {
             abort(404);

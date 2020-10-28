@@ -20,19 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faa94087-ef7b-4f88-988e-90fccebc5779" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/show-answer-exam.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/show-answer-homework.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/front/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Questionexam.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Questionexam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Questionhomework.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Questionhomework.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/ok.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ok.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/show-month-contents-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/show-month-contents-exam.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/ExamAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/ExamAnswer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/js/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/show-month-contents.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/show-month-contents.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/show-months.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/show-months.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,17 +176,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\year\exam" />
-      <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\year" />
-      <recent name="D:\xampp\htdocs\online_courses" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\online_courses\app\Http\Middleware" />
       <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\year" />
       <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\layouts" />
       <recent name="D:\xampp\htdocs\online_courses\app\Http\Controllers" />
       <recent name="D:\xampp\htdocs\online_courses\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\year\exam" />
+      <recent name="D:\xampp\htdocs\online_courses\resources\views\admin\year" />
+      <recent name="D:\xampp\htdocs\online_courses" />
     </key>
   </component>
   <component name="RunManager">
@@ -222,6 +221,8 @@
       <workItem from="1603707504279" duration="9949000" />
       <workItem from="1603725111572" duration="3211000" />
       <workItem from="1603771128225" duration="12226000" />
+      <workItem from="1603802505236" duration="7875000" />
+      <workItem from="1603855410083" duration="17954000" />
     </task>
     <servers />
   </component>
@@ -238,6 +239,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603423696984">

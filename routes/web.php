@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     Route::get('subject/{id}','HomeController@show')->name('show.subject.months');
